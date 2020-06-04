@@ -218,9 +218,6 @@ export class LinkModel<G extends LinkModelGenerics = LinkModelGenerics> extends 
 		if (port !== null) {
 			port.addLink(this);
 		}
-		if (this.sourcePort !== null) {
-			this.sourcePort.removeLink(this);
-		}
 		this.sourcePort = port;
 		this.fireEvent({ port }, 'sourcePortChanged');
 	}
@@ -236,9 +233,6 @@ export class LinkModel<G extends LinkModelGenerics = LinkModelGenerics> extends 
 	setTargetPort(port: PortModel) {
 		if (port !== null) {
 			port.addLink(this);
-		}
-		if (this.targetPort !== null) {
-			this.targetPort.removeLink(this);
 		}
 		this.targetPort = port;
 		this.fireEvent({ port }, 'targetPortChanged');
